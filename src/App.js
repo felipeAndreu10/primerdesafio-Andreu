@@ -1,8 +1,9 @@
+import Navbar from "./components/Navbar/Navbar.js";
 
 function App() {
   return (
     <div className="App">
-     Hola primer app
+     <Navbar />
     </div>
   );
 }

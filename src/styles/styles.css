@@ -1,0 +1,9 @@
+.claseTitulo {
+    height: 10rem;
+    width: 5rem;
+    background-color: bisque;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 7px;
+}
