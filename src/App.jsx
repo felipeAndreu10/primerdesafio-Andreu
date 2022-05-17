@@ -1,4 +1,4 @@
-import ItemListContainer from './components/ItemListContainer/index';
+import ItemDetailContainer from "./components/Item.DetailContainer/index.jsx";
 import Navbar from "./components/Navbar/Navbar.js";
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
     <div className="App">
      <>
      <Navbar />
-     <ItemListContainer texto='Felipe'/>
+     <ItemDetailContainer /> 
      </>
     </div>
   );
