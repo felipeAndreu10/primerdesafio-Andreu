@@ -1,0 +1,22 @@
+.Home{
+    background-color:rgb(49, 61, 61);
+}
+.carrusel {
+    display: block;
+    padding: 5rem;
+    width: 75rem;
+    height: 40rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.img1 {
+    height: 30rem;
+}
+
+.img2 {
+    height: 30rem;
+}
+.img3 {
+    height: 30rem;
+}

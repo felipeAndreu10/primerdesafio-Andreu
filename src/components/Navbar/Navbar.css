@@ -1,0 +1,9 @@
+.barra{
+    background-color: rgb(211, 190, 162);
+    padding: 2rem;
+    font-family: sans-serif;
+}
+
+.titulo {
+    font-size: 30px;
+}

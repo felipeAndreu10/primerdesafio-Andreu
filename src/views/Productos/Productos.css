@@ -1,0 +1,13 @@
+.grid {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    gap: 10rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 3rem;
+    background-color: rgb(49, 61, 61);
+  }
+
+  .img {
+      height: 20rem;
+  }

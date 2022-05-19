@@ -3,7 +3,6 @@ import Title from '../Title';
 import ItemCount from '../ItemCount'
 import ItemList from '../ItemList'
 
-
 const films = [
     { id:1 , image:"https://www.padelvip.com/blog/wp-content/uploads/PADELVIP-HACK0214421-min.jpg" , title: "Bullpadel Hack"},
     { id:2 , image: "https://www.padeladdict.com/wp-content/uploads/2019/12/bullpadel-vertex-02-2019-portada.jpg" , title: "Bullpadel Vertex"},
@@ -12,6 +11,8 @@ const films = [
 
 
 export const ItemListContainer = ({texto}) => {
+    
+    
     const [data, setData] = useState([]);
 
     useEffect(() => {
