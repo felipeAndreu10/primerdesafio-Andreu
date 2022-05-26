@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import ItemDetail from '../Item.Detail';
+import ItemDetail from '../ItemDetail';
 
 const film = { id:1 , image:"https://www.padelvip.com/blog/wp-content/uploads/PADELVIP-HACK0214421-min.jpg" , title: "Bullpadel Hack"};
 

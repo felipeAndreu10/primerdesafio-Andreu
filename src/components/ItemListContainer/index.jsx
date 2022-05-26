@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'; 
 import Title from '../Title';
-import ItemCount from '../ItemCount'
-import ItemList from '../ItemList'
+
+import ItemList from '../ItemList';
 
 const films = [
     { id:1 , image:"https://www.padelvip.com/blog/wp-content/uploads/PADELVIP-HACK0214421-min.jpg" , title: "Bullpadel Hack"},
@@ -25,13 +25,11 @@ export const ItemListContainer = ({texto}) => {
 
     }, [])
 
-    const onAdd = (quantity) => {
-        console.log (`compraste ${quantity} unidades`)  ;
-    }
+    
     return (
         <>
         <Title greeting={texto} />
-        <ItemCount initial={3} stock={5} onAdd= {onAdd} />
+        
         <ItemList data={data} />
         </>
     );
