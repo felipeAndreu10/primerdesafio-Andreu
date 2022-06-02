@@ -5,6 +5,8 @@ import Carrito from "./views/Carrito/Carrito.js";
 import Productos from "./views/Productos/Productos.js";
 import Home from "./views/Home/Home.js";
 import Mail from "./views/Mail/Mail.js";
+import ItemListContainer from "./components/ItemListContainer";
+
 
 function App() {
   return (
@@ -19,7 +21,8 @@ function App() {
         <Route exact path="/Mail" element={<Mail />} /> 
       </Routes>
      </BrowserRouter>
-     {/* <ItemDetailContainer /> */}
+     <ItemDetailContainer />
+     <ItemListContainer />
      </>
     </div>
   );
