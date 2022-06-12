@@ -1,11 +1,12 @@
 
 import { Card, Button } from "react-bootstrap";
+import ItemListContainer from "../../components/ItemListContainer";
 import "./Productos.css";
 
 export default function Productos() {
     return (
-        <div className="grid">
-            <Card style={{ width: '18rem' }}>
+        <div>
+            {/* <Card style={{ width: '18rem' }}>
                 <Card.Img className="img" variant="top" src="https://www.padelnuestro.com/images/cargador/productos/imagen-1-25653-0faf6c8f-26849-NORMAL.jpg" />
                 <Card.Body>
                 <Card.Title>Metalbone</Card.Title>
@@ -64,7 +65,9 @@ export default function Productos() {
                 </Card.Text>
                 <Button variant="primary">Añadir al carrito</Button>
                 </Card.Body>
-            </Card>
+            </Card> */}
+            
+            <ItemListContainer />
         </div>
     )
 }

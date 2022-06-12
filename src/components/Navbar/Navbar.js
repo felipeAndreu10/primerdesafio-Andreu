@@ -1,27 +1,31 @@
+import CartWidget from '../CartWidget';
+ 
+import './Navbar.css';
+import { NavLink } from 'react-router-dom';
+import React from 'react';
 
-import  {Navbar, Container,Nav, NavDropdown} from "react-bootstrap"
-import "./Navbar.css"
 
 
-export default function Header() {
+export const Navbar = () => {
   return (
-    <Navbar bg="light" expand="lg">
-  <Container className="barra">
-    <Navbar.Brand className="titulo" href="/Home">Zona Padel</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="me-auto">
-        <Nav.Link href="/Home">Home</Nav.Link>
-        <Nav.Link href="/Productos">Productos</Nav.Link>
-        <Nav.Link href="/Carrito">Carrito</Nav.Link>
-        <NavDropdown title="Consultas" id="basic-nav-dropdown">
-          <NavDropdown.Item href="/Mail">Iniciar Sesión</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Whatsapp</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Instagram</NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-);
+        <div className= "container">
+          <nav className="nav">
+            <div className="brand1">
+              <NavLink className="nav__link" to='/Home'>Zona Padel</NavLink>
+            </div>
+            <ul className="nav__list">
+              <li>
+                <NavLink className="nav__link" to='Productos'>Productos</NavLink>
+              </li>
+              <li>
+                <NavLink className="nav__link" to='Carrito'>
+                  <CartWidget />
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+  );
 }
+
+export default Navbar; 

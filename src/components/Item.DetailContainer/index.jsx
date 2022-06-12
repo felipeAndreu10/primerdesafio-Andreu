@@ -1,26 +1,35 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react'; 
 import ItemDetail from '../ItemDetail';
+import { useParams } from 'react-router-dom';
 
-const film = { id:1 , image:"https://www.padelvip.com/blog/wp-content/uploads/PADELVIP-HACK0214421-min.jpg" , title: "Bullpadel Hack"};
+
+const films = [
+    { id:1 , price: 250, image:"https://www.padelvip.com/blog/wp-content/uploads/PADELVIP-HACK0214421-min.jpg" , title: "Bullpadel Hack"},
+    { id:2 , price: 300, image: "https://www.padeladdict.com/wp-content/uploads/2019/12/bullpadel-vertex-02-2019-portada.jpg" , title: "Bullpadel Vertex"},
+    { id:3, price: 280, image:"https://www.padelnuestro.com/blog/wp-content/uploads/Banner-Cuadrado-Bullpadel-2.jpg", title: "Hack CTRL"},
+];
 
 
 export const ItemDetailContainer = () => {
+    
+    
+    const [data, setData] = useState({});
+    const {detalleId} = useParams ();
 
-    const [data, setData] = useState ({});
-
-    useEffect (() => {
-        const getData = new Promise (resolve => {
-            setTimeout(() => {
-                resolve (film);
+    useEffect(() => {
+        const getData = new Promise( resolve  =>{
+            setTimeout (() => {
+                resolve(films);
             },3000);
         });
-        getData.then(res=> setData(res));
+        getData.then(res => setData(res.find(film=>film.id === parseInt(detalleId))));
 
     }, [])
 
+    
     return (
         <ItemDetail data={data} />
     );
 }
 
-export default ItemDetailContainer;
+export default ItemDetailContainer; 
