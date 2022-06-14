@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Title from '../Title';
 
 import ItemList from '../ItemList';
+import {collection, getFirestore, getDocs, doc} from "firebase/firestore";
 
 const films = [
     { id:1 , price: 250, image:"https://www.padelvip.com/blog/wp-content/uploads/PADELVIP-HACK0214421-min.jpg" , title: "Bullpadel Hack"},
@@ -12,23 +13,34 @@ const films = [
 
 export const ItemListContainer = ({texto}) => {
     
+    const [data, setData] = React.useState([]);
     
-    const [data, setData] = useState([]);
 
+    // useEffect(() => {
+    //     const getData = new Promise( resolve  =>{
+    //         setTimeout (() => {
+    //             resolve(films);
+    //         },3000);
+    //     });
+    //     getData.then(res => setItems(res));
+
+    // }, [])
+    
     useEffect(() => {
-        const getData = new Promise( resolve  =>{
-            setTimeout (() => {
-                resolve(films);
-            },3000);
+        const db = getFirestore()
+        const productsRef = collection(db, "productos")
+        getDocs(productsRef).then(snapshots => {
+            if (snapshots.size === 0) {
+                console.log ("No hay productos");
+            }
+            setData(snapshots.docs.map(doc => ({id: doc.id, ...doc.data()})));
         });
-        getData.then(res => setData(res));
-
-    }, [])
-
+    
+    },[]);
     
     return (
         <>
-        <Title greeting={texto} />
+        {/* <Title greeting={texto} /> */}
         
         <ItemList data={data} />
         </>
