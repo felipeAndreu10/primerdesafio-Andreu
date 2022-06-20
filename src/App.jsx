@@ -16,7 +16,7 @@ function App() {
       <CartProvider>
       <Navbar />
       <Routes>
-        <Route exact path='/Home' element={<Home />} />
+        <Route exact path='/' element={<Home />} />
         <Route exact path='/Productos' element={<ItemListContainer />} />
         <Route exact path='/Carrito' element={<Carrito />} /> 
         <Route exact path='/detalle/:detalleId' element={<ItemDetailContainer />} />

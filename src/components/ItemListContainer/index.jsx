@@ -1,46 +1,30 @@
 import React, { useState, useEffect } from 'react'; 
 import Title from '../Title';
-
+import { useParams } from 'react-router-dom';
 import ItemList from '../ItemList';
-import {collection, getFirestore, getDocs, doc} from "firebase/firestore";
+import {collection, getFirestore, getDocs} from "firebase/firestore";
 
-const films = [
-    { id:1 , price: 250, image:"https://www.padelvip.com/blog/wp-content/uploads/PADELVIP-HACK0214421-min.jpg" , title: "Bullpadel Hack"},
-    { id:2 , price: 300, image: "https://www.padeladdict.com/wp-content/uploads/2019/12/bullpadel-vertex-02-2019-portada.jpg" , title: "Bullpadel Vertex"},
-    { id:3, price: 280, image:"https://www.padelnuestro.com/blog/wp-content/uploads/Banner-Cuadrado-Bullpadel-2.jpg", title: "Hack CTRL"},
-];
+
 
 
 export const ItemListContainer = ({texto}) => {
     
-    const [data, setData] = React.useState([]);
+    const [data, setData] = useState([]);
+    const {categoriaId} = useParams();
     
 
-    // useEffect(() => {
-    //     const getData = new Promise( resolve  =>{
-    //         setTimeout (() => {
-    //             resolve(films);
-    //         },3000);
-    //     });
-    //     getData.then(res => setItems(res));
-
-    // }, [])
-    
+ 
     useEffect(() => {
-        const db = getFirestore()
-        const productsRef = collection(db, "productos")
-        getDocs(productsRef).then(snapshots => {
-            if (snapshots.size === 0) {
-                console.log ("No hay productos");
-            }
-            setData(snapshots.docs.map(doc => ({id: doc.id, ...doc.data()})));
-        });
+        const querydb = getFirestore()
+        const queryCollection = collection(querydb, "productos")
+        getDocs(queryCollection)
+            .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data()}))))
     
-    },[]);
+    },[categoriaId]);
     
     return (
         <>
-        {/* <Title greeting={texto} /> */}
+        <Title greeting={texto} />
         
         <ItemList data={data} />
         </>

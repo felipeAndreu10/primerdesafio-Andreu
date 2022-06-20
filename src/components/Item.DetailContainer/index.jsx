@@ -1,30 +1,20 @@
 import React, { useState, useEffect } from 'react'; 
 import ItemDetail from '../ItemDetail';
 import { useParams } from 'react-router-dom';
-
-
-const films = [
-    { id:1 , price: 250, image:"https://www.padelvip.com/blog/wp-content/uploads/PADELVIP-HACK0214421-min.jpg" , title: "Bullpadel Hack"},
-    { id:2 , price: 300, image: "https://www.padeladdict.com/wp-content/uploads/2019/12/bullpadel-vertex-02-2019-portada.jpg" , title: "Bullpadel Vertex"},
-    { id:3, price: 280, image:"https://www.padelnuestro.com/blog/wp-content/uploads/Banner-Cuadrado-Bullpadel-2.jpg", title: "Hack CTRL"},
-];
+import {getFirestore, getDoc, doc} from 'firebase/firestore';
 
 
 export const ItemDetailContainer = () => {
     
-    
     const [data, setData] = useState({});
-    const {detalleId} = useParams ();
-
-    useEffect(() => {
-        const getData = new Promise( resolve  =>{
-            setTimeout (() => {
-                resolve(films);
-            },3000);
-        });
-        getData.then(res => setData(res.find(film=>film.id === parseInt(detalleId))));
-
-    }, [])
+    const {detalleId} = useParams();
+    
+    useEffect(()=>{
+        const querydb = getFirestore()
+        const queryDoc= doc(querydb, "productos", detalleId);
+        getDoc(queryDoc)
+        .then(res => setData({id: res.id, ...res.data()}))
+    },[detalleId])
 
     
     return (
@@ -32,4 +22,4 @@ export const ItemDetailContainer = () => {
     );
 }
 
-export default ItemDetailContainer; 
+ export default ItemDetailContainer;
