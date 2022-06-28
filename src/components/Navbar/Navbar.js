@@ -11,7 +11,7 @@ export const Navbar = () => {
         <div className= "container">
           <nav className="nav">
             <div className="brand1">
-              <NavLink className="nav__link" to='/'>Zona Padel</NavLink>
+              <NavLink className="nav__link navbar-brand" to='/'>Zona Padel</NavLink>
             </div>
             <ul className="nav__list">
               <li>

@@ -1,9 +1,14 @@
-.barra{
+.container{
     background-color: rgb(211, 190, 162);
     padding: 2rem;
     font-family: sans-serif;
 }
-
+.nav__link{
+    text-decoration: none;
+    color: black;
+    align-content: center;
+    
+}
 .titulo {
     font-size: 30px;
 }
